@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<title>Socks、VPN、Onion</title>
+<style type="text/css">
+h1{text-align:center;line-height:100%;margin:06px 0;font-size:16.5pt;font-family:shzyly-Hei;}
+h2{text-align:center;line-height:100%;margin:05px 0;font-size:15.0pt;font-family:shzyly-Kai;}
+h3{text-align:center;line-height:100%;margin:04px 0;font-size:13.5pt;font-family:shzyly-Hei;}
+h4{text-align:center;line-height:100%;margin:03px 0;font-size:12.0pt;font-family:shzyly-Kai;}
+h5{text-align:center;line-height:100%;margin:02px 0;font-size:10.5pt;font-family:shzyly-Hei;}
+h6{text-align:center;line-height:100%;margin:01px 0;font-size:09.0pt;font-family:shzyly-Kai;}
+p{text-indent:2em;font-size:12.0pt;font-family:shzyly-Song;line-height:137.5%;margin:4px 0;}
+li{font-size:12.0pt;font-family:shzyly-Song;line-height:137.5%;}
+/*  */
+body{background-color:white;margin:0 auto;}
+p.yvan{font-size:09.0pt;text-align:right;line-height:100%;margin-left:4em;text-indent:0em;}
+p.p2{margin-left:2em;text-indent:2em;}
+p.p3{margin-left:4em;text-indent:2em;}
+p.pc{text-indent:0em;text-align:center;}
+p.pl{text-indent:2em;text-align:left;}
+p.pr{margin-left:2em;text-indent:2em;text-align:right;}
+p.pl0{text-indent:0em;text-align:left;}
+p.pr0{text-indent:0em;text-align:right;}
+p.pt{margin-left:2em;text-indent:0em;}
+p.pt2{margin-left:4em;text-indent:0em;}
+p.pj{text-indent:0em;text-align-last:justify;white-space:nowrap;}
+.s{font-size:09.0pt;}
+/*  */
+ul{margin:0 0;text-indent:1em;}
+ul.nav{list-style-type:none;margin:0;padding:0;overflow:hidden;background-color:white;text-align:center;display:block;border:1px solid black;}
+ol{margin:0 0;text-indent:1em;}
+li.nav{float:left;text-indent:0em;}
+li a.nav{display:block;color:black;text-align:center;padding:14px 30px;text-decoration:none;}
+li a:hover.nav{background-color:yellow;text-decoration:none;}
+/*  */
+img{border:1px solid black;max-width:100%;vertical-align:middle;}
+a img{border:1px solid;max-width:100%;vertical-align:middle;}
+audio{vertical-align:middle;min-width:30%;max-width:100%;}
+a{text-decoration:none;color:blue;}
+a:hover{text-decoration:underline;}
+table{margin:0 auto;line-height:100%;}
+table.song{white-space:nowrap;}
+td.song{width:50%;}
+table.full{width:100%;}
+td.space{min-width:32px;}
+/*  */
+div.clist{text-align:center;}
+div ol.clist{display:inline-block;text-align:left;}
+div.div-p2{margin:0 auto;border-left: 1px solid black;margin-left:2em;}
+/*  */
+.sans{font-family:shzyly-Hei;}
+.serif{font-family:shzyly-Song;}
+.fang{font-family:shzyly-Fang;}
+.kai{font-family:shzyly-Kai;}
+/*  */
+.red{color:red;}
+.orange{color:orangered}
+.brown{color:saddlebrown;}
+.green{color:green;}
+.blue{color:blue;}
+.purple{color:purple;}
+.opacity{opacity:0.5;}
+/*  */
+.b-red{background-color:red;}
+.b-yellow{background-color:yellow;}
+.b-lime{background-color:lime;}
+.b-cyan{background-color:cyan;}
+/*  */
+.zhuo{background-color:yellow;}
+.bian{margin:3px 0;line-height:137.5%;font-size:9pt;color:saddlebrown;}
+.jin{margin:3px 0;line-height:137.5%;font-size:9pt;color:purple;}
+.wai{opacity:0.5;}
+/*  */
+span.ge{text-decoration:underline;text-decoration-color:red;text-decoration-thickness:2px;}
+span.qi{text-decoration:underline;text-decoration-color:saddlebrown;text-decoration-thickness:2px;}
+span.li{text-decoration:underline;text-decoration-color:green;text-decoration-thickness:2px;}
+span.zi{text-decoration:underline;text-decoration-color:blue;text-decoration-thickness:2px;}
+span.zhe{text-decoration:underline;text-decoration-color:purple;text-decoration-thickness:2px;}
+div.ge{border-right: 5px solid red;}
+div.qi{border-right: 5px solid saddlebrown;}
+div.li{border-right: 5px solid green;}
+div.zi{border-right: 5px solid blue;}
+div.zhe{border-right: 5px solid purple;}
+/*  */
+article{display:grid;width:100%;min-height:100vh;}
+article div.s{place-self: start center;}
+article div.c{place-self: center center;}
+article div.e{place-self: end center;}
+.break{page-break-before:always;}
+</style>
+</head>
+<body>
+
+<h1>Socks、VPN、Onion</h1>
+<p>这是本文要介绍的三样东西，统称为“代理网络连接”。原理很简单，就像找人替你送信，都是要一个中间服务器转发你的网络流量，而不是和通信目标端到端地直接连接。就像互联网运营商不给互联网用户提供端到端直接连接的条件，因此就用户们必须借助于专门的服务器来传递信息。和目标服务器连接也是如此。你想连接一个目标服务器，但是你和它的连接受到互联网封锁，于是你找一个中继服务器替你送信。你能连接上这个中继服务器，这个中继服务器能连接上目标服务器，那么，代理连接就达成了。</p>
+<p>这就像是现实中的一种诡异的国家政策：不允许人去敌对国家，但允许人去其它国家（因此间谍们、特务们、叛徒们、军火贩子们、和敌对国家的人有亲属关系的人们可以经过其它国家再去敌对国家；信件也是如此）。</p>
+<p>如果你和一个目标对象的连接的稳定性或速度很差，那么代理网络连接可以起到更好的效果。这也就是“加速器”的原理。反之，如果直接连接的效果更好，那么代理就成了减速器了。</p>
+
+<h2>Socks</h2>
+<p>要使用Socks代理网络连接，你只需要知道服务器的IP地址和服务的端口号。如果有虚拟身份验证，那么就要有虚拟身份号码和登录密码（从服务方那里索要）。就这么简单。</p>
+<p>但在中国，互联网上的公共Socks代理连接服务器大多很可能连接不上，也不一定稳定，那么为什么还要学习Socks代理网络连接呢？因为Socks是很基础的知识，你在使用其它类型的代理网络连接的时候也会需要配置Socks。</p>
+<p>许多代理网络连接工具会把自己提供的代理网络连接服务放在系统上，不会直接给整个系统套用，这样你就可以选择让哪一个软件用哪一个代理连接。</p>
+<p>IP地址“127.0.0.1”不代表任何地理位置，而只代表你的系统。代理网络连接工具可能会把自己提供的服务设置到本地的一个端口号上，而不是提供一个有对应地理位置的IP地址。因此，要使用这种代理网络连接时，其地址是：“127.0.0.1:服务端口号”。（“127.0.0.1”有时可以用“localhost”字样代替。）</p>
+<p>Socks的版本分为v4和v5。</p>
+<p>另外，还有纯HTTP代理和HTTPS代理。但如果你要访问既有TLS加密的内容又有无TLS加密的内容的网站的话，那么情况就可能更复杂，有可能你需要两个都配置。它们不像Socks那样可以代理几乎所有类型的互联网连接。（但实际上，公共的代理网络连接服务不一定愿意代理所有类型的连接，例如可能不允许UDP连接。）</p>
+<p>如果你的路由器允许，那么你还可以将你的代理网络连接工具提供的服务给局域网里的其它设备使用。其IP地址将为“192.168.#.#”。</p>
+<p>许多互联网软件会自己提供代理连接的设置选项，不需要额外安装软件。例如桌面版火狐浏览器的设置中就可以。</p>
+<p></p>
+
+<h2>VPN</h2>
+<p>VPN的用途除了有作代理连接外，还可以作为内网的访问权限管理工具。例如，学校里提供的一些网上内容不对校外公开，就让师生们使用VPN工具，输入自己的虚拟身份号码和密码，然后就可以访问校外人访问不了的内容了。在不使用这种东西时，应当考虑关闭，因为，它可能是代理所有的连接的，当你访问其它内容的时候，这个代理服务器也会记录下来，代理服务器的管理员可以看到你访问了什么网址，什么类型的网络服务；它也有可能拖慢你访问互联网的速度。</p>
+<p>VPN用作隐藏用户元数据信息的工具时，或用于通过互联网封锁时，它通常会被制作成各种各样的软件，而不是通过一两个字符串就可以使用。</p>
+<p>Android系统同时只能运行一个VPN，除非你安装了一个叫“<a class="brown" href="https://mirrors.tuna.tsinghua.edu.cn/fdroid/repo/net.typeblog.shelter_445.apk" target="_blank">Shelter</a>”的软件。</p>
+<p>在Android系统上，由于用户可以决定哪些软件是否通过VPN代理联网，所以VPN也可以被用来阻止软件联网（本质上是给被禁止联网的软件套用一个无效的代理）。具体软件是<a class="red" href="https://f-droid.org/zh_Hans/packages/eu.faircode.netguard/" target="_blank">NetGuard</a>。</p>
+<p>对Windows系统而言，通常不应该同时运行两个会自动给软件套用代理的VPN软件。</p>
+<p>一个典型的用于通过互联网封锁的VPN代理连接软件是<a class="red" href="https://geph.io/zhs" target="_blank">Geph</a>。</p>
+
+<h2>Onion</h2>
+<p>主要作用是通过代理访问普通互联网。也可以访问域名结尾是“.onion”的非普通互联网。</p>
+<p>也可以管它叫“<span class="sans"><strong>Tor</strong></span>”（The Onion Router）。英文“onion”的意思是“洋葱”，因此它的用户端软件图标也常常用洋葱作为组成元素。其软件有：</p>
+
+<table>
+<tr>
+<td><p class="pc"><a class="red" href="https://www.torproject.org/download/" target="_blank">
+
+<svg style="width:80px;height:80px;"
+width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 46.5C36.4264 46.5 46.5 36.4264 46.5 24C46.5 11.5736 36.4264 1.5 24 1.5C11.5736 1.5 1.5 11.5736 1.5 24C1.5 36.4264 11.5736 46.5 24 46.5Z" fill="url(#paint0_linear_1920_3864)"/>
+<path d="M24 5.54297C34.1935 5.54297 42.457 13.8065 42.457 24C42.457 34.1935 34.1935 42.457 24 42.457V39.6445C32.6402 39.6445 39.6445 32.6402 39.6445 24C39.6445 15.3598 32.6402 8.35547 24 8.35547V5.54297Z" fill="#EACCFF"/>
+<path d="M24 12.4424C30.3831 12.4424 35.5576 17.6169 35.5576 24C35.5576 30.3831 30.3831 35.5576 24 35.5576V32.7451C28.8298 32.7451 32.7451 28.8298 32.7451 24C32.7451 19.1702 28.8298 15.2549 24 15.2549V12.4424Z" fill="#EACCFF"/>
+<path d="M24 19.21C26.6455 19.21 28.79 21.3545 28.79 24C28.79 26.6455 26.6455 28.79 24 28.79V19.21Z" fill="#EACCFF"/>
+<path d="M24 1.5C12.7386 1.5 3.60938 10.6685 3.60938 21.9785C3.60938 33.2885 12.7386 42.457 24 42.457V1.5Z" fill="#BE6EF7" fill-opacity="0.4"/>
+<path d="M24 1.5C32.2194 1.5 39.4094 5.90728 43.3357 12.4875V21.9785C43.3892 33.2884 34.6788 42.457 24 42.457L24 1.5Z" fill="url(#paint1_linear_1920_3864)"/>
+<defs>
+<linearGradient id="paint0_linear_1920_3864" x1="24" y1="46.5" x2="24" y2="1.5" gradientUnits="userSpaceOnUse">
+<stop offset="0.333333" stop-color="#730BDA"/>
+<stop offset="1" stop-color="#B83DF5"/>
+</linearGradient>
+<linearGradient id="paint1_linear_1920_3864" x1="24" y1="21.9785" x2="43.3357" y2="21.9785" gradientUnits="userSpaceOnUse">
+<stop stop-color="#550080" stop-opacity="0.4"/>
+<stop offset="0.166667" stop-color="#550080" stop-opacity="0.4"/>
+<stop offset="0.333333" stop-color="#550080" stop-opacity="0.2"/>
+<stop offset="0.5" stop-color="#550080" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
+<br/>Tor Browser</a></p></td>
+<td>
+<p>Tor Browser是火狐浏览器的改版，专门使用Tor网络来访问网页。</p>
+<p>它连接成功时，你可以使用SOCKS5代理网络连接地址“127.0.0.1:9150”。</p>
+<p><a class="brown" href="https://sourceforge.net/projects/tor-browser.mirror/files/" target="_blank">https://sourceforge.net/projects/tor-browser.mirror/files/</a></p>
+<p><a class="brown" href="https://www.fosshub.com/Tor-Browser.html" target="_blank">https://www.fosshub.com/Tor-Browser.html</a></p>
+</td>
+</tr>
+
+<tr>
+<td><p class="pc"><a class="orange" href="https://orbot.app/en/download/" target="_blank">
+
+
+<svg style="width:80px;height:80px;"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="1.1"
+    x="0"
+    y="0"
+    width="990"
+    height="990"
+    viewBox="0 0 990 990"
+    enable-background="new 0 0 990 990">
+
+<circle id="main-circle-drop-shadow" cx="532" cy="532" r="475" fill="#000" fill-opacity=".1" transform="translate(-17,-17)" />
+<circle id="main-circle" cx="512" cy="512" r="475" fill="#4f3663" transform="translate(-17,-17)" />
+
+<path id="onion-drop-shadow" fill="#000" fill-opacity=".2" d="m957.5 596c3.4-16.6 5.9-33.7 7.5-51.3L572.3 152 541.1 182 472.4 113.3 439.1 195.1 490.5 246.5 273.5 833.1 400.8 960.4c21.5 4.1 43.1 6.7 65.2 7.9 0.4 0.1 0.8 0.1 1.2 0.1 0.2 0 0.3 0 0.4 0 8.5 0.5 16.6 0.7 24.5 0.7q1.5 0 3 0c10.3 0 20.5-0.3 30.1-0.8 2.5-0.1 4.8-0.3 7-0.4 20.2-1.4 39.9-4 58.7-7.7 8-1.5 15.8-3.3 23.4-5.1 80.8-20.3 152.2-61.6 214.7-124.1 6.1-6.1 12-12.2 17.5-18.3 39.9-43.8 69.8-91.6 89.9-143.5 9.1-23.4 16.2-47.7 21.3-73z" />
+
+<g id="onion" transform="translate(-17,-17)">
+    <path id="first-layer" fill="#fdfcdf" d="m433.1 252.1 0 13.4c-1.7 42.1-20 72.8-54.8 92.2-3 1.5-6.1 3-9.1 4.7-26.7 14.2-51.7 32.9-74.8 56-60.1 60.2-90.2 132.8-90.2 217.8 0 85.1 30.1 157.7 90.2 217.8 60.2 60.2 132.8 90.2 217.8 90.2 1.5 0 2.9 0 4.1 0l0 0 0-64.4c0-151.1 0-428.3 0-614l0 0c-28.7-2.2-56.4-7.8-83.1-13.6z" />
+    <circle id="second-layer" fill="#eaeace" cx="512" cy="645" r="235" d="M 747,645 C 747,774.78692 641.78692,880 512,880 382.21308,880 277,774.78692 277,645 277,515.21308 382.21308,410 512,410 c 129.78692,0 235,105.21308 235,235 z" />
+    <circle id="third-layer" fill="#d1d1b8" cx="512" cy="648" r="162" d="m 674,648 c 0,89.47013 -72.52987,162 -162,162 -89.47013,0 -162,-72.52987 -162,-162 0,-89.47013 72.52987,-162 162,-162 89.47013,0 162,72.52987 162,162 z" />
+    <circle id="fourth-layer" fill="#bfbfa9" cx="512" cy="650" r="94" d="m 606,650 c 0,51.91477 -42.08523,94 -94,94 -51.91477,0 -94,-42.08523 -94,-94 0,-51.91477 42.08523,-94 94,-94 51.91477,0 94,42.08523 94,94 z" />
+
+    <path id="half" fill="#735a93" d="m820.1 636.1q0-127.6-90.2-217.8c-23.8-23.8-49.7-43-77.8-57.5-38.1-17.6-58.4-50.5-61-98.6-25.7 4.9-50.6 5.4-74.9 3.6l0 0 0 144.5 0 75.9 0 70.4 0 187.3 0 66 0 70 0 64.4 0 0c83.5-1 154.6-31.1 213.7-90.2 60.2-60.1 90.2-132.7 90.2-217.8z" />
+
+    <path id="leafs" fill="#78af52" d="m443.4 84.4c-0.3 1.3-0.7 2.6-0.9 3.7q-31 121.9 65.2 161.7c18.8-62.2-0.9-116-59.3-161.7-1.4-1.1-3.1-2.4-4.8-3.7zM524.4 249.8c-5.4-40.8 16.3-67.9 64.9-80.8-5.3 44.9-26.9 71.8-64.9 80.8" />
+</g>
+</svg>
+
+
+<br/>Orbot</a></p></td>
+<td>
+<p>Orbot则是为移动操作系统开发的以VPN形式发挥作用的软件。在iOS上它的效用则因（和服务区无关的）系统限制而很难发挥好。</p>
+<p><a class="orange" href="https://github.com/guardianproject/orbot/releases" target="_blank">https://github.com/guardianproject/orbot/releases</a></p>
+</td>
+</tr>
+</table>
+
+<p>普通iOS用户使用中国大陆服务区账号的话就别想下载到它们了。</p>
+
+<p>在中国很可能是不能直接连接Onion网络的，要通过<span class="sans"><strong>网桥</strong></span>来连接。应当了解的网桥类型只有<span class="sans"><strong>obfs4</strong></span>，其它的没有够好的效果。obfs4的特点是：要么完全不管用，要么就较稳定。</p>
+<p>Orbot和桌面端的Tor Browser能够从服务器获取公共网桥，每天可以获取三个（在两个软件中获取的是相同的）。你也可以从自己相信的人那里获取（它们已经保存的）网桥。</p>
+<p>要测试网桥的话，就把收集到的网桥复制到一个表格里。每次测试时只填入一个网桥，如果网桥能在十秒钟之内连接成功，那么它就算是能用的；这种测试程度就已经足够了，一般来说，超过十秒钟没有连接进度变化就可以视为无法连接。到表格里对无法使用的网桥标记为“不能用”，如果你担心网桥只是临时下线，也可以记下测试时间，隔几天再测试一次。</p>
+<p>网桥可以一次添加多个，但是应该只添加能正常使用的网桥，因为它可能会和不能正常使用的网桥较劲太长时间。</p>
+
+<p>如果某个网站拒绝为你用的IP地址服务，或者你不喜欢某个网站对你用的IP地址的区别对待，那么你可以更换线路（不需要更换网桥），这会更换访问网站用的IP地址。</p>
+<p>你和不同的网桥之间会有不同的最大传输速度。如果达到了0.5MiB/s，就已经算好了；如果达到了2MiB/s，就已经非常棒了。如果你嫌你和某个网站的传输速度慢，可以更换线路；更换线路没用时，你应该更换使用的网桥。</p>
+<p></p>
+
+
+
+<table><tr>
+<td><p class="pc">
+
+<svg style="width:4cm;height:2.5cm;"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="800"
+   height="500"
+   viewBox="0 0 211.66666 132.29167"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g4117">
+    <rect
+       style="fill:#b40000;fill-opacity:1;stroke-width:0.38281"
+       id="rect845"
+       width="185.20833"
+       height="115.75521"
+       x="-7.1525574e-06"
+       y="16.536459" />
+    <rect
+       style="fill:#ffd700;fill-opacity:1;stroke-width:0.182866"
+       id="rect20"
+       width="185.20833"
+       height="16.536459"
+       x="-7.1525574e-06"
+       y="0" />
+    <rect
+       style="fill:#00ffff;fill-rule:evenodd;stroke-width:0.264583"
+       id="rect18"
+       width="26.458334"
+       height="132.29167"
+       x="185.20833"
+       y="0" />
+  </g>
+  <g
+     style="fill:#ffd700;fill-opacity:1"
+     id="g2900"
+     transform="matrix(0.38172934,0,0,0.38073358,16.911722,3.5201507)">
+    <path
+       id="rect4165-6"
+       d="m 137.43744,171.69421 18.86296,18.9937 17.78834,-17.66589 c 27.05847,29.021 55.43807,56.99501 82.28704,86.12782 4.03444,4.06233 10.59815,4.085 14.66056,0.0506 4.06232,-4.03445 4.08499,-10.59815 0.0506,-14.66056 -28.81871,-27.1901 -57.72545,-54.60143 -86.55328,-81.89095 l 23.96499,-23.80003 -33.34026,-4.61605 z"
+       style="fill:#ffd700;fill-opacity:1;stroke:none;stroke-width:0.489191;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       id="path4179-3"
+       d="m 198.2887,110.1955 c 15.51743,8.7394 27.29872,21.28122 34.2484,34.3924 7.04394,13.28902 10.13959,27.16218 10.20325,38.25433 0.13054,22.74374 -18.43771,41.18184 -41.18183,41.18184 -12.13597,0 -23.04607,-5.24868 -30.58302,-13.60085 l -4.16863,3.51033 c -0.70999,-0.27231 -1.46387,-0.41221 -2.22429,-0.41276 -1.82948,1.9e-4 -3.56621,0.80531 -4.74859,2.20136 -2.97368,0.38896 -5.46251,2.44529 -6.40534,5.29224 -3.13486,6.28843 -8.63524,11.21997 -15.29104,13.4776 -0.0637,0.0216 -0.11992,0.05 -0.1758,0.0783 -3.07749,1.12758 -6.16259,3.1643 -8.78919,5.80245 -5.19155,5.23656 -7.72858,11.93658 -6.30024,16.63822 -0.14098,0.40857 -0.21361,0.83759 -0.21498,1.26979 1.5e-4,2.17082 1.75991,3.93058 3.93073,3.93073 0.54341,-0.002 1.08053,-0.11639 1.57745,-0.33632 4.69369,1.05881 11.06885,-1.54582 16.05444,-6.55917 2.82624,-2.85072 4.94356,-6.22349 5.98303,-9.53062 2.31696,-6.62278 7.29699,-12.01856 13.62281,-15.05312 0.15105,-0.0725 0.27303,-0.14714 0.38218,-0.22358 2.12082,-1.01408 3.67251,-2.92895 4.225,-5.2139 9.70222,11.44481 24.25255,18.75299 40.51876,19.13577 29.83352,0.70205 52.13299,-21.25802 53.16414,-52.83642 0.51894,-15.89259 -5.62993,-36.3847 -19.6412,-53.19089 -10.70835,-12.84441 -26.40987,-23.50795 -44.18699,-28.20777 z"
+       style="fill:#ffd700;fill-opacity:1;stroke:none;stroke-width:0.500035;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  </g>
+  <path
+     id="path11728"
+     d="M 92.604155,7.2683716e-7 90.551825,6.3163837 h -6.64139 l 5.37299,3.9036923 -2.05233,6.316382 5.37306,-3.903766 5.37306,3.903766 -2.05233,-6.316382 5.372995,-3.9036923 h -6.641395 z m 0,3.29080897316284 1.31347,4.042453 h 4.25055 l -3.43877,2.498458 1.31346,4.0424523 -3.43871,-2.498387 -3.43871,2.498387 1.31347,-4.0424523 -3.43878,-2.498458 h 4.25055 z"
+     style="fill:#b40000;fill-opacity:1;stroke:none;stroke-width:0.0365646px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+</svg>
+
+<br/>
+<span class="kai"><strong>金星革命委员会</strong></span>
+</p></td>
+<td>
+<p class="pc"><a class="green" href="https://shzyly.github.io/" target="_blank">https://shzyly.github.io/</a></p>
+<p class="pc"><a class="red" href="https://shzyly.bitbucket.io/" target="_blank">https://shzyly.bitbucket.io/</a></p>
+<p class="pc"><a class="green" href="https://shzyly.rf.gd/" target="_blank">https://shzyly.rf.gd/</a></p>
+<p class="pc">单HTML文件版。2024年03月31日。</p>
+</td>
+</tr></table>
+
+<p></p>
+<p></p>
+
+</body>
+</html>
