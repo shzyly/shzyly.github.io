@@ -4,11 +4,11 @@ h3{text-align:center;line-height:100%;margin:04px 0;font-size:13.5pt;font-family
 h4{text-align:center;line-height:100%;margin:03px 0;font-size:12.0pt;font-family:shzyly-Kai;}
 h5{text-align:center;line-height:100%;margin:02px 0;font-size:10.5pt;font-family:shzyly-Hei;}
 h6{text-align:center;line-height:100%;margin:01px 0;font-size:09.0pt;font-family:shzyly-Kai;}
-p{text-indent:2em;font-size:12.0pt;font-family:shzyly-Song;line-height:137.5%;margin:6px 0;}
+p{text-indent:2em;font-size:12.0pt;font-family:shzyly-Song;line-height:137.5%;margin:4px 0;}
 li{font-size:12.0pt;font-family:shzyly-Song;line-height:137.5%;}
 /*  */
 body{background-color:white;margin:0 auto;}
-p.yvan{font-size:09.0pt;text-align:right;line-height:100%;margin-left:4em;}
+p.yvan{font-size:09.0pt;text-align:right;line-height:100%;margin-left:4em;text-indent:0em;}
 p.p2{margin-left:2em;text-indent:2em;}
 p.p3{margin-left:4em;text-indent:2em;}
 p.pc{text-indent:0em;text-align:center;}
@@ -49,6 +49,7 @@ div.div-p2{margin:0 auto;border-left: 1px solid black;margin-left:2em;}
 .kai{font-family:shzyly-Kai;}
 /*  */
 .red{color:red;}
+.orange{color:orangered}
 .brown{color:saddlebrown;}
 .green{color:green;}
 .blue{color:blue;}
@@ -70,11 +71,11 @@ span.qi{text-decoration:underline;text-decoration-color:saddlebrown;text-decorat
 span.li{text-decoration:underline;text-decoration-color:green;text-decoration-thickness:2px;}
 span.zi{text-decoration:underline;text-decoration-color:blue;text-decoration-thickness:2px;}
 span.zhe{text-decoration:underline;text-decoration-color:purple;text-decoration-thickness:2px;}
-div.ge{border-right: 2px solid red;}
-div.qi{border-right: 2px solid saddlebrown;}
-div.li{border-right: 2px solid green;}
-div.zi{border-right: 2px solid blue;}
-div.zhe{border-right: 2px solid purple;}
+div.ge{border-right: 5px solid red;}
+div.qi{border-right: 5px solid saddlebrown;}
+div.li{border-right: 5px solid green;}
+div.zi{border-right: 5px solid blue;}
+div.zhe{border-right: 5px solid purple;}
 /*  */
 article{display:grid;width:100%;min-height:100vh;}
 article div.s{place-self: start center;}
