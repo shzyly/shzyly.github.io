@@ -61,7 +61,7 @@ div.div-p2{margin:0 auto;border-left: 1px solid black;margin-left:2em;}
 .b-lime{background-color:lime;}
 .b-cyan{background-color:cyan;}
 /*  */
-.zhuo{background-color:yellow;}
+.zhuo{text-shadow: 1px 1px 1.5px orangered}
 .bian{margin:3px 0;line-height:137.5%;font-size:9pt;color:saddlebrown;}
 .jin{margin:3px 0;line-height:137.5%;font-size:9pt;color:purple;}
 .wai{opacity:0.5;}
