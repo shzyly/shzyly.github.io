@@ -3,13 +3,14 @@
 <body>
 
 <h1>不受监管的通信</h1>
-<p class="pc">（更新于2024年10月08日。）</p>
+<p class="pc">（更新于2024年10月13日。）</p>
 
 <h2>●代理网络连接</h2>
 <p>原理很简单，就像找人替你送信——要一个中间服务器转发你的网络流量，而不是你和通信目标直接连接。你想连接一个目标，但是你和它的连接受到互联网封锁，于是你找一个中继服务器替你送信。你能连接上这个中继服务器，这个中继服务器能连接上目标服务器，那么，代理连接就能达成了。</p>
 <p>这就像是现实中的一种诡异的国家政策：不允许人去敌对国家，但允许人去其它国家：因此间谍们、特务们、叛徒们、军火贩子们、和敌对国家的人有亲属关系的人们可以经过其它国家再去敌对国家，信件也是如此。</p>
 <p>如果你和一个目标对象的连接的稳定性或速度很差，那么代理网络连接可以起到更好的效果。这也就是“加速器”的原理。反之，如果直接连接的效果更好，那么代理就成了减速器了。</p>
 <p>不是所有的网页链接都需要使用代理连接才能访问。例如，如果一个需要用代理连接才能访问的网站，它提供文件下载，但它提供的文件下载链接却属于另一个网站，那么你就可以试试不用代理连接而用直接连接来下载这个文件，说不定能够直接连接，甚至可以有更快的下载速度。</p>
+<p>“隐藏自己的（真实）IP网址”是常见的代理网络连接商业广告宣传词，不过新手乍一看是看不明白这个广告词是什么意思的。“隐藏IP”实际上指的就是代理网络连接。“隐藏IP”这个说法并不准确，想上网是不可能脱离IP网址的，代理网络连接并不会向连接对象隐藏IP网址，只是换了个IP网址来连接对象，因此准确地说是自己的真实IP网址被隐藏了（但代理连接服务器还是得知道你的IP网址的。）。如果你要使用什么不熟悉的代理网络连接服务，那么检测是否代理成功的方法就是：访问一个IP网址检测网站来查看自己在用什么IP网址上网，至少不应该还是原来的IP网址。</p>
 
 <h3>◉Socks</h3>
 <p>要使用Socks代理网络连接，你只需要知道服务器的IP网址和服务的端口号。如果有虚拟身份验证，那么就要有虚拟身份号码和登录密码（从服务方那里索要）。就这么简单。</p>
@@ -18,13 +19,13 @@
 <p>IP网址“127.0.0.1”不代表任何地理位置，而只代表你的系统。代理网络连接工具可能会把自己提供的服务设置到系统的一个端口号上，而不提供一个有对应地理位置的IP网址。因此，要使用这种代理网络连接时，其网址是：“127.0.0.1:服务端口号”。（“127.0.0.1”有时可以用“localhost”字样代替。）</p>
 <p>Socks的版本分为v4和v5，有时需要区分。</p>
 <p>Socks是一种很通用的代理网络连接，它可以同时代理纯HTTP连接和HTTPS连接，可以代理几乎所有类型的互联网连接。但实际上，公共的代理网络连接服务不一定愿意代理所有类型的连接，例如可能不允许UDP连接。还有纯HTTP代理和HTTPS代理，其配置和Socks一样简单。但有可能你需要两个都配置，因为有的网站既有TLS加密内容，也有无加密内容。</p>
-<p>如果你的路由器允许，那么你还可以将你的代理网络连接工具提供的服务给局域网里的其它设备使用。其IP网址将为“192.168.#.#”。</p>
+<p>如果你的路由器以及软件允许，那么你还可以将你的代理网络连接工具提供的服务给局域网里的其它设备使用。其IP网址将为“192.168.#.#”。</p>
 <p>许多互联网软件会自己提供代理连接的设置选项，不需要额外安装软件。例如桌面版火狐浏览器的设置中就可以。在火狐浏览器上配置Socks代理时应勾选“使用SOCKS v5时代理DNS查询”。如果在访问网页时，火狐浏览器立即反馈“代理服务器拒绝连接”，则说明配置不正确。</p>
 <p></p>
 
 <h3>◉VPN</h3>
-<p>VPN的用途除了有作代理连接外，还可以作为内网的访问权限管理工具。例如，学校里提供的一些网上内容不对校外公开，就让师生们使用VPN工具，输入自己的校内人员的身份号码和密码，然后就可以访问校外人访问不了的内容了。在不使用这种东西时，应当考虑关闭，因为，它可能是代理所有的连接的，当你访问其它内容的时候，这个代理服务器也会记录下来，代理服务器的管理员可以看到你访问了什么网址，什么类型的网络服务；它也有可能拖慢你访问互联网的速度。</p>
-<p>VPN用作隐藏用户元数据信息的工具时，或用于通过互联网封锁时，它通常会被制作成各种各样的软件，而不是通过一两个字符串就可以使用。</p>
+<p>VPN的用途除了有作代理连接外，还可以作为内网的访问权限管理工具。例如，学校里提供的一些网上内容不对校外公开，就让师生们使用VPN工具，输入自己的校内人员的身份号码和密码，然后就可以访问校外人访问不了的内容了。在不使用校园网VPN这种东西时，应当考虑关闭，因为，它可能是代理所有的连接的，当你访问其它内容的时候，这个代理服务器也会记录下来，代理服务器的管理员可以看到你访问了什么网址，什么类型的网络服务；它也有可能拖慢你访问互联网的速度。</p>
+<p>VPN用作隐藏用户元数据信息的工具时，或用于通过互联网封锁时，它通常会被制作成各种各样的软件，而不是通过几个字符串就可以使用。</p>
 <p>Android系统同时只能运行一个VPN，除非你安装了一个叫“<a class="brown" href="https://mirrors.tuna.tsinghua.edu.cn/fdroid/repo/net.typeblog.shelter_445.apk" target="_blank">Shelter</a>”的软件。</p>
 <p>对Microsoft Windows系统而言，通常不应该同时运行两个会自动给软件套用代理的VPN软件。</p>
 <table><tr>
@@ -320,17 +321,35 @@ PyRPIertU0Zf1z7H1YIt6+q3dfprfmhdv7iap1BoO/CzM4QFolRjy6LWDrU6Whe1NOavMeNnhyg8jg06
 H3r51OOhK/yy8A5v3f4tQoYw7oE/Oy82CLkzAA==
 " width="80px"/><br/>Geph</a></p></td>
 <td>
-<p>一个典型的用于通过互联网封锁的VPN代理连接软件</p>
+<p>一个典型的用于通过互联网封锁的VPN代理连接软件及服务</p>
 <p>它的免费服务不限时间不限流量，虽然限速，但对基础通讯而言足够用了。</p>
 <p>支持Microsoft Windows、Android、iOS、Mac OS。</p>
 <p>如果在iOS应用仓库搜索不到，那么你需要另一个服务区的Apple账号。</p>
 <p>官方网站：“<a class="red" href="https://geph.io/zhs" target="_blank">https://geph.io/zhs</a>”。</p>
 </td>
+</tr><tr>
+<td><p class="pc">
+<svg width="80px" id="vector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 196"><path fill="#4bae4f" d="M2,98a96,96 0,1 0,192 0a96,96 0,1 0,-192 0z" stroke-width="1.5" stroke="#4bae4f" id="path_0"/><path fill="#000000FF" d="m165.476,63.006l-9.551,-9.551l-19.305,21.744c-13.954,-15.715 -33.259,-25.199 -55.071,-25.199c-19.576,0 -37.527,7.858 -51.549,20.321l9.619,9.619c11.515,-10.093 26.079,-16.393 41.93,-16.393c18.56,0 34.479,8.535 45.859,21.947l-19.509,21.947l-27.095,-27.095l-50.804,50.871l10.161,10.161l40.643,-40.711l27.095,27.095l27.434,-30.821c5.08,9.145 8.467,19.644 9.754,30.821l13.615,0c-1.49,-15.58 -6.435,-29.737 -13.819,-41.591l20.592,-23.166z" id="path_1"/></svg>
+<br/>PowerTunnel</p></td>
+<td>
+<p>不是所有的互联网软件都自带代理功能设置。在Android上，如果你想为你的软件套用互联网上的公共Socks代理网络连接，或者局域网里的运行在其它设备上的Socks代理网络连接服务，那么这个小软件可以帮到你。</p>
+<p>需要懂英语。</p>
+<p>有<a class="orange" href="https://github.com/krlvm/PowerTunnel-Android/releases" target="_blank">Android端</a>和<a class="orange" href="https://github.com/krlvm/PowerTunnel/releases" target="_blank">Microsoft Windows端</a>。</p>
+</td>
 </tr></table>
 
 <h3>◉Onion</h3>
-<p>主要作用是通过代理访问普通互联网。也可以访问域名结尾是“.onion”的非普通互联网。</p>
-<p>也可以管它叫“<span class="sans"><strong>Tor</strong></span>”（The Onion Router）。英文“onion”的意思是“洋葱”，因此它的用户端软件图标也常常用洋葱作为组成元素。其软件有：</p>
+<p>主要作用是通过代理访问普通互联网。<!--也可以访问域名结尾是“.onion”的非普通互联网。--></p>
+<p>也可以管它叫“<span class="sans"><strong>Tor</strong></span>”（The Onion Router）。英文“onion”的意思是“洋葱”，因此它的用户端软件图标也常常用洋葱作为组成元素。</p>
+
+<p>在中国的主要行政区很可能是不能直接连接Onion网络的，要通过<span class="sans"><strong>网桥</strong></span>来连接。</p>
+<p>要介绍的网桥有三种，一种叫“snowflake”，另两种叫“obfs4”和“webtunnel”。</p>
+<p>snowflake不需要你记住或输入任何网址就可以连接。成功率和所需时间不确定，连接上后的速度和稳定性也不确定，速度可能很慢，稳定性可能很差。如果对连接效果不满意，则可以关闭连接后重新连接（对Tor网页浏览器而言要重启整个网页浏览器才能查看新的连接进度）。如果超过三十秒没有连接成功，也请重试。</p>
+<p>obfs4和webtunnel需要记字符串，特点是要么完全不管用，要么就连接稳定。</p>
+<p>桌面端的Tor网页浏览器每天都能够获取公共的obfs4网桥。访问<a class="red" href="https://bridges.torproject.org/options" target="_blank">这个网址</a>也能获取obfs4网桥，还可以获得webtunnel网桥。你也可以从自己相信的人那里获取（它们已经保存的）网桥。要测试网桥的话，就把收集到的网桥复制并记录下来。每次测试时只填入一个网桥，如果网桥能在十秒钟之内连接成功，那么它就算是能用的；这种测试程度就已经足够了，一般来说，超过十秒钟没有连接进度变化就可以视为无法连接。如果你担心网桥只是临时下线，也可以隔几天再测试一次。</p>
+<p>网桥可以一次添加多个，但是应该只添加能正常使用的网桥，因为它可能会和排在前面的不能正常使用的网桥较劲太长时间后才尝试下一个。因此测试的时候也要只填一个网桥。</p>
+<p>你和不同的网桥之间会有不同的最大传输速度。如果达到了0.1MiB/s，就该满足了；如果达到了0.5MiB/s，就已经算好了；如果达到了2MiB/s，就已经非常棒了。如果你嫌你和某个网站的传输速度慢，可以更换线路；更换线路没用时，你应该更换使用的网桥。</p>
+<p>如果某个网站拒绝为你用的IP网址服务，或者你不喜欢某个网站对你用的IP网址的区别对待，或者你想碰碰运气看看能不能得到更好的连接速度，那么你可以更换线路（不需要更换网桥），这会更换访问网站用的IP网址。</p>
 
 <table>
 <tr>
@@ -360,13 +379,13 @@ width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/
 <br/>Tor网页浏览器</a></p></td>
 <td>
 <p>Tor网页浏览器是火狐网页浏览器的改版，专门使用Tor网络来访问网页。</p>
-<p>它连接成功时，你可以使用SOCKS5代理网络连接网址“127.0.0.1:9150”。</p>
+<p>它连接成功时，你可以使用SOCKS5代理网络连接网址“127.0.0.1:9150”，至少在桌面端是这样的。</p>
 <p>有Windows端和Android端。</p>
 <p><a class="brown" href="https://sourceforge.net/projects/tor-browser.mirror/files/" target="_blank">https://sourceforge.net/projects/tor-browser.mirror/files/</a></p>
 <p><a class="brown" href="https://www.fosshub.com/Tor-Browser.html" target="_blank">https://www.fosshub.com/Tor-Browser.html</a></p>
 </td>
 </tr>
-
+<!--
 <tr>
 <td><p class="pc"><a class="orange" href="https://orbot.app/en/download/" target="_blank">
 <svg style="width:80px;height:80px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" width="990" height="990" viewBox="0 0 990 990" enable-background="new 0 0 990 990">
@@ -385,23 +404,287 @@ width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/
 <br/>Orbot</a></p></td>
 <td>
 <p>Orbot则是为移动操作系统开发的以VPN形式发挥作用的软件。在iOS上它的效用则因（和服务区无关的）系统限制而很难发挥好。</p>
+<p>可能有些你想用的软件靠它来接入Tor网络，但它并不处于活跃更新，可能有些功能发挥不好，因此并不建议使用。如果执意使用，那么只建议只使用obfs4连接。</p>
 <p><a class="orange" href="https://github.com/guardianproject/orbot/releases" target="_blank">https://github.com/guardianproject/orbot/releases</a></p>
+</td>
+</tr>
+-->
+<tr>
+<td><p class="pc"><a class="red" href="https://f-droid.org/zh_Hans/packages/pan.alexander.tordnscrypt.stable/" target="_blank"><img src="
+data:image/webp;base64,
+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
+" width="80px"/>
+<br/>InviZible Pro</a></p></td>
+<td>
+<p>别看它很复杂的样子，但只需要用它的Tor网络功能就行了，不需要管其它的。</p>
+<p>打开它的Tor设置，选择使用obfs4或webtunnel网桥，然后输入一些网桥，它能帮助你批量测试。</p>
+<p>用于Android。</p>
+<p></p>
 </td>
 </tr>
 </table>
 
-
-<p>在中国的主要行政区很可能是不能直接连接Onion网络的，要通过<span class="sans"><strong>网桥</strong></span>来连接。</p>
-<p>要介绍的网桥有两种，一种叫“snowflake”，另一种叫“obfs4”。</p>
-<p>snowflake不需要你记住或输入任何网址，直接就可以连接。成功率和所需时间不确定，连接上后的速度也不确定，可能很慢。如果对连接效果不满意，则可以关闭连接后重新连接（对Tor网页浏览器而言要重启整个网页浏览器）。如果超过三十秒没有连接成功，也请重试。</p>
-<p>Orbot和桌面端的Tor网页浏览器每天都能够获取公共的obfs4网桥。你也可以从自己相信的人那里获取（它们已经保存的）网桥。要测试obfs4网桥的话，就把收集到的网桥复制并记录下来。每次测试时只填入一个网桥，如果网桥能在十秒钟之内连接成功，那么它就算是能用的；这种测试程度就已经足够了，一般来说，超过十秒钟没有连接进度变化就可以视为无法连接。如果你担心网桥只是临时下线，也可以隔几天再测试一次。</p>
-<p>网桥可以一次添加多个，但是应该只添加能正常使用的网桥，因为它可能会和排在前面的不能正常使用的网桥较劲太长时间后才尝试下一个。因此测试的时候也要只填一个网桥。</p>
-<p>你和不同的obfs4网桥之间会有不同的最大传输速度。如果达到了0.5MiB/s，就已经算好了；如果达到了2MiB/s，就已经非常棒了。如果你嫌你和某个网站的传输速度慢，可以更换线路；更换线路没用时，你应该更换使用的网桥。</p>
-<p>如果某个网站拒绝为你用的IP网址服务，或者你不喜欢某个网站对你用的IP网址的区别对待，或者你想碰碰运气看看能不能得到更好的连接速度，那么你可以更换线路（不需要更换网桥），这会更换访问网站用的IP网址。</p>
 <p></p>
 
 <h3>◉在线网页版代理连接</h3>
 <p>一些网站提供在线网页版的公共代理，通过它们的网站就可以访问其它网站。当然，这很可能需要你懂外语；而且还需要你和这种网站的连接没有被封锁。</p>
+
+<h2>●DNS</h2>
+<p>在你访问一个网页的时候，像这样的网址：“shzyly.bitbucket.io”，实际上类似于地名（其计算机术语为“域名”），而不是坐标，因此你并不知道该往哪里走，需要专门的向导（引路人）。这个向导，就是DNS服务器。DNS服务器根据域名告诉你对应网站的服务器的IP网址，于是你就可以访问网站服务器了。尽管看起来是根据域名来访问的，但本质上访问的还是IP网址；实际上，你也可以在网址栏直接输入IP网址来访问网站，不过不是所有的网站都支持这么做，而且互联网网站TLS加密应用于域名而非IP网址。</p>
+<p>公共的DNS服务器是默默无闻的，不需要注册登录，不需要付费，不需要专门的手动操作或配置，它所做的工作很简单，也不用担心它的运行压力过大。人们不能缺少它，同时却又不需要专门注意它的存在，除非你遇到了DNS问题。</p>
+<p>有些互联网封锁的手段很简单，就是让默认的DNS服务器表现得不实诚，不告诉你正确的坐标，让你访问不到目的地，这叫“DNS污染”。而叫“DNS劫持”的网络攻击也同样不是什么高深的手段，就是访问甲网站结果被DNS服务器引导至乙网站，甲网站的网站服务器本身没发生任何问题，访客却会误以为网站服务器遭到篡改了或被查封了，尤其是在它们看到乙网站的内容时，网页浏览器的网址栏仍显示甲网站的网址的情况。如果不是有针对性的DNS劫持攻击，那么你访问其它不被允许访问的网站也会跳转到乙网站；通常在这种情况下，乙网站的内容就类似于“这是诈骗网站，禁止访问。”、“你所访问的网站包含违规内容。”。</p>
+<p>解决的办法很简单，换一个DNS服务器使用即可，例如换一个外国的DNS服务器。代价是降低和一些（本来可以连接的）网站的连接速度——有的网站在世界的不同地方有多个服务器，而远的DNS服务器可能会把你引导到远的网站服务器，而不是引导到离你近的。</p>
+<p>影响最终使用哪个DNS服务器的因素有很多：路由器可以设置使用什么DNS服务器，操作系统也可以选，用户端软件（例如网页浏览器）自己也可以选。</p>
+<p>用户可能可以配置多个DNS服务器，可能还分主要和次要。对网页浏览器而言，可能一个DNS服务器故意给个错误的结果，这个网站就被显示为“无法访问”或“访问失败”了；但是如果你每隔几秒就再尝试访问一次，就可能访问成功了，这是表面上看起来奇怪的事情。</p>
+<p>如果对某个网站的访问受到了互联网封锁，但是这次屏蔽看起来没有章法、不合逻辑，不像是人为的，像是机器自动操作，像是个意外，那么更换DNS服务器就很可能可以解决问题。例如，如果“aaa.soviet.union”无法访问，但是“aab.soviet.union”可以访问，也就是同一个网站的两个子域名有不同情况，那么就说明很可能这个网站的IP网址没有被屏蔽，只是受到了DNS污染；除非这个网站真的刻意为两个子域名设置了两个不同的IP网址，才有可能存在针对IP网址的屏蔽。例如，如果某个反现任政府的恐怖主义组织官方设立了属于不同服务器的多个网站网址，但并没有全部被屏蔽，仍有可以直接访问的，那么这种屏蔽就不像是有人专门操作。</p>
+
+<table><tr>
+<td><p class="pc"><a class="red" href="https://one.one.one.one/" target="_blank"><img src="
+data:image/webp;base64,
+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
+" width="80px"/><br/>1.1.1.1</a></p></td>
+<td>
+<p>1.1.1.1是个典型的DNS服务器网址。</p>
+<p>它还提供用户端软件，在Android端它可以通过VPN模式来帮助你给其它软件切换使用的DNS服务器为1.1.1.1。</p>
+<p>仅此而已——虽然它也提供代理网络连接服务，但在中国大陆用不了。</p>
+</td>
+</tr></table>
+<p>如果你用代理网络连接，那么你可以忽视关于DNS服务器的问题。</p>
+<p></p>
+
+<h2>●网页浏览器</h2>
+<p>你还应该学会使用国际通用的普通的网页浏览器，不要使用中国专供的。中国专供的网页浏览器自然有理由自带不允许访问某些网站的设计。</p>
+<table><tr>
+<td><p class="pc">
+
+<svg width="80" height="80" version="1.1" viewBox="0 0 77.42 79.97" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <title>Firefox Browser logo</title>
+  <defs>
+    <linearGradient id="a" x1="70.79" x2="6.447" y1="12.39" y2="74.47" gradientTransform="translate(-1.3 -.004086)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff44f" offset=".048" /><stop stop-color="#ffe847" offset=".111" /><stop stop-color="#ffc830" offset=".225" /><stop stop-color="#ff980e" offset=".368" /><stop stop-color="#ff8b16" offset=".401" /><stop stop-color="#ff672a" offset=".462" /><stop stop-color="#ff3647" offset=".534" /><stop stop-color="#e31587" offset=".705" />
+    </linearGradient>
+    <radialGradient id="b" cx="-7907" cy="-8515" r="80.8" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffbd4f" offset=".129" /><stop stop-color="#ffac31" offset=".186" /><stop stop-color="#ff9d17" offset=".247" /><stop stop-color="#ff980e" offset=".283" /><stop stop-color="#ff563b" offset=".403" /><stop stop-color="#ff3750" offset=".467" /><stop stop-color="#f5156c" offset=".71" /><stop stop-color="#eb0878" offset=".782" /><stop stop-color="#e50080" offset=".86" />
+    </radialGradient>
+    <radialGradient id="c" cx="-7937" cy="-8482" r="80.8" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#960e18" offset=".3" /><stop stop-color="#b11927" stop-opacity=".74" offset=".351" /><stop stop-color="#db293d" stop-opacity=".343" offset=".435" /><stop stop-color="#f5334b" stop-opacity=".094" offset=".497" /><stop stop-color="#ff3750" stop-opacity="0" offset=".53" />
+    </radialGradient>
+    <radialGradient id="d" cx="-7927" cy="-8533" r="58.53" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff44f" offset=".132" /><stop stop-color="#ffdc3e" offset=".252" /><stop stop-color="#ff9d12" offset=".506" /><stop stop-color="#ff980e" offset=".526" />
+    </radialGradient>
+    <radialGradient id="e" cx="-7946" cy="-8461" r="38.47" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3a8ee6" offset=".353" /><stop stop-color="#5c79f0" offset=".472" /><stop stop-color="#9059ff" offset=".669" /><stop stop-color="#c139e6" offset="1" />
+    </radialGradient>
+    <radialGradient id="f" cx="-7936" cy="-8492" r="20.4" gradientTransform="matrix(.972 -.235 .275 1.138 10090 7834)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9059ff" stop-opacity="0" offset=".206" /><stop stop-color="#8c4ff3" stop-opacity=".064" offset=".278" /><stop stop-color="#7716a8" stop-opacity=".45" offset=".747" /><stop stop-color="#6e008b" stop-opacity=".6" offset=".975" />
+    </radialGradient>
+    <radialGradient id="g" cx="-7938" cy="-8518" r="27.68" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe226" offset="0" /><stop stop-color="#ffdb27" offset=".121" /><stop stop-color="#ffc82a" offset=".295" /><stop stop-color="#ffa930" offset=".502" /><stop stop-color="#ff7e37" offset=".732" /><stop stop-color="#ff7139" offset=".792" />
+    </radialGradient>
+    <radialGradient id="h" cx="-7916" cy="-8536" r="118.1" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff44f" offset=".113" /><stop stop-color="#ff980e" offset=".456" /><stop stop-color="#ff5634" offset=".622" /><stop stop-color="#ff3647" offset=".716" /><stop stop-color="#e31587" offset=".904" />
+    </radialGradient>
+    <radialGradient id="i" cx="-7927" cy="-8523" r="86.5" gradientTransform="matrix(.105 .995 -.653 .069 -4685 8470)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff44f" offset="0" /><stop stop-color="#ffe847" offset=".06" /><stop stop-color="#ffc830" offset=".168" /><stop stop-color="#ff980e" offset=".304" /><stop stop-color="#ff8b16" offset=".356" /><stop stop-color="#ff672a" offset=".455" /><stop stop-color="#ff3647" offset=".57" /><stop stop-color="#e31587" offset=".737" />
+    </radialGradient>
+    <radialGradient id="j" cx="-7938" cy="-8508" r="73.72" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff44f" offset=".137" /><stop stop-color="#ff980e" offset=".48" /><stop stop-color="#ff5634" offset=".592" /><stop stop-color="#ff3647" offset=".655" /><stop stop-color="#e31587" offset=".904" />
+    </radialGradient>
+    <radialGradient id="k" cx="-7919" cy="-8504" r="80.69" gradientTransform="translate(7974,8524)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff44f" offset=".094" /><stop stop-color="#ffe141" offset=".231" /><stop stop-color="#ffaf1e" offset=".509" /><stop stop-color="#ff980e" offset=".626" />
+    </radialGradient>
+    <linearGradient id="l" x1="70.01" x2="15.27" y1="12.06" y2="66.81" gradientTransform="translate(-1.3 -.004086)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff44f" stop-opacity=".8" offset=".167" /><stop stop-color="#fff44f" stop-opacity=".634" offset=".266" /><stop stop-color="#fff44f" stop-opacity=".217" offset=".489" /><stop stop-color="#fff44f" stop-opacity="0" offset=".6" />
+    </linearGradient>
+  </defs>
+  <g transform="matrix(.9819843 0 0 .9819843 .6974849 .7199239)">
+    <path d="m74.62 26.83c-1.684-4.052-5.1-8.427-7.775-9.81a40.27 40.27 0 0 1 3.925 11.76l7e-3 0.065c-4.382-10.92-11.81-15.33-17.88-24.92-0.307-0.485-0.614-0.971-0.913-1.484-0.171-0.293-0.308-0.557-0.427-0.8a7.053 7.053 0 0 1-0.578-1.535 0.1 0.1 0 0 0-0.088-0.1 0.138 0.138 0 0 0-0.073 0c-5e-3 0-0.013 9e-3 -0.019 0.011s-0.019 0.011-0.028 0.015l0.015-0.026c-9.735 5.7-13.04 16.25-13.34 21.53a19.39 19.39 0 0 0-10.67 4.111 11.59 11.59 0 0 0-1-0.758 17.97 17.97 0 0 1-0.109-9.473 28.7 28.7 0 0 0-9.329 7.21h-0.018c-1.536-1.947-1.428-8.367-1.34-9.708a6.928 6.928 0 0 0-1.294 0.687 28.22 28.22 0 0 0-3.788 3.245 33.84 33.84 0 0 0-3.623 4.347v6e-3 -7e-3a32.73 32.73 0 0 0-5.2 11.74l-0.052 0.256c-0.073 0.341-0.336 2.049-0.381 2.42 0 0.029-6e-3 0.056-9e-3 0.085a36.94 36.94 0 0 0-0.629 5.343v0.2a38.76 38.76 0 0 0 76.95 6.554c0.065-0.5 0.118-0.995 0.176-1.5a39.86 39.86 0 0 0-2.514-19.47zm-44.67 30.34c0.181 0.087 0.351 0.181 0.537 0.264l0.027 0.017q-0.282-0.135-0.564-0.281zm8.878-23.38m31.95-4.934v-0.037l7e-3 0.041z" fill="url(#a)" />
+    <path d="m74.62 26.83c-1.684-4.052-5.1-8.427-7.775-9.81a40.27 40.27 0 0 1 3.925 11.76v0.037l7e-3 0.041a35.1 35.1 0 0 1-1.206 26.16c-4.442 9.531-15.19 19.3-32.02 18.82-18.18-0.515-34.2-14.01-37.19-31.68-0.545-2.787 0-4.2 0.274-6.465a28.88 28.88 0 0 0-0.623 5.348v0.2a38.76 38.76 0 0 0 76.95 6.554c0.065-0.5 0.118-0.995 0.176-1.5a39.86 39.86 0 0 0-2.514-19.47z" fill="url(#b)" />
+    <path d="m74.62 26.83c-1.684-4.052-5.1-8.427-7.775-9.81a40.27 40.27 0 0 1 3.925 11.76v0.037l7e-3 0.041a35.1 35.1 0 0 1-1.206 26.16c-4.442 9.531-15.19 19.3-32.02 18.82-18.18-0.515-34.2-14.01-37.19-31.68-0.545-2.787 0-4.2 0.274-6.465a28.88 28.88 0 0 0-0.623 5.348v0.2a38.76 38.76 0 0 0 76.95 6.554c0.065-0.5 0.118-0.995 0.176-1.5a39.86 39.86 0 0 0-2.514-19.47z" fill="url(#c)" />
+    <path d="m55.78 31.38c0.084 0.059 0.162 0.118 0.241 0.177a21.1 21.1 0 0 0-3.6-4.695c-12.05-12.05-3.157-26.12-1.658-26.84l0.015-0.022c-9.735 5.7-13.04 16.25-13.34 21.53 0.452-0.031 0.9-0.069 1.362-0.069a19.56 19.56 0 0 1 16.98 9.917z" fill="url(#d)" />
+    <path d="m38.82 33.79c-0.064 0.964-3.47 4.289-4.661 4.289-11.02 0-12.81 6.667-12.81 6.667 0.488 5.614 4.4 10.24 9.129 12.68 0.216 0.112 0.435 0.213 0.654 0.312q0.569 0.252 1.138 0.466a17.24 17.24 0 0 0 5.043 0.973c19.32 0.906 23.06-23.1 9.119-30.07a13.38 13.38 0 0 1 9.345 2.269 19.56 19.56 0 0 0-16.98-9.917c-0.46 0-0.91 0.038-1.362 0.069a19.39 19.39 0 0 0-10.67 4.111c0.591 0.5 1.258 1.168 2.663 2.553 2.63 2.591 9.375 5.275 9.39 5.59z" fill="url(#e)" />
+    <path d="m38.82 33.79c-0.064 0.964-3.47 4.289-4.661 4.289-11.02 0-12.81 6.667-12.81 6.667 0.488 5.614 4.4 10.24 9.129 12.68 0.216 0.112 0.435 0.213 0.654 0.312q0.569 0.252 1.138 0.466a17.24 17.24 0 0 0 5.043 0.973c19.32 0.906 23.06-23.1 9.119-30.07a13.38 13.38 0 0 1 9.345 2.269 19.56 19.56 0 0 0-16.98-9.917c-0.46 0-0.91 0.038-1.362 0.069a19.39 19.39 0 0 0-10.67 4.111c0.591 0.5 1.258 1.168 2.663 2.553 2.63 2.591 9.375 5.275 9.39 5.59z" fill="url(#f)" />
+    <path d="m24.96 24.36c0.314 0.2 0.573 0.374 0.8 0.531a17.97 17.97 0 0 1-0.109-9.473 28.7 28.7 0 0 0-9.329 7.21c0.189-5e-3 5.811-0.106 8.638 1.732z" fill="url(#g)" />
+    <path d="m0.354 42.16c2.991 17.67 19.01 31.17 37.19 31.68 16.83 0.476 27.58-9.294 32.02-18.82a35.1 35.1 0 0 0 1.206-26.16v-0.037c0-0.029-6e-3 -0.046 0-0.037l7e-3 0.065c1.375 8.977-3.191 17.67-10.33 23.56l-0.022 0.05c-13.91 11.33-27.22 6.834-29.91 5q-0.282-0.135-0.564-0.281c-8.109-3.876-11.46-11.26-10.74-17.6a9.953 9.953 0 0 1-9.181-5.775 14.62 14.62 0 0 1 14.25-0.572 19.3 19.3 0 0 0 14.55 0.572c-0.015-0.315-6.76-3-9.39-5.59-1.405-1.385-2.072-2.052-2.663-2.553a11.59 11.59 0 0 0-1-0.758c-0.23-0.157-0.489-0.327-0.8-0.531-2.827-1.838-8.449-1.737-8.635-1.732h-0.018c-1.536-1.947-1.428-8.367-1.34-9.708a6.928 6.928 0 0 0-1.294 0.687 28.22 28.22 0 0 0-3.788 3.245 33.84 33.84 0 0 0-3.638 4.337v6e-3 -7e-3a32.73 32.73 0 0 0-5.2 11.74c-0.019 0.079-1.396 6.099-0.717 9.221z" fill="url(#h)" />
+    <path d="m52.42 26.86a21.1 21.1 0 0 1 3.6 4.7c0.213 0.161 0.412 0.321 0.581 0.476 8.787 8.1 4.183 19.55 3.84 20.36 7.138-5.881 11.7-14.58 10.33-23.56-4.384-10.93-11.82-15.34-17.88-24.93-0.307-0.485-0.614-0.971-0.913-1.484-0.171-0.293-0.308-0.557-0.427-0.8a7.053 7.053 0 0 1-0.578-1.535 0.1 0.1 0 0 0-0.088-0.1 0.138 0.138 0 0 0-0.073 0c-5e-3 0-0.013 9e-3 -0.019 0.011s-0.019 0.011-0.028 0.015c-1.499 0.711-10.39 14.79 1.66 26.83z" fill="url(#i)" />
+    <path d="m56.6 32.04c-0.169-0.155-0.368-0.315-0.581-0.476-0.079-0.059-0.157-0.118-0.241-0.177a13.38 13.38 0 0 0-9.345-2.269c13.94 6.97 10.2 30.97-9.119 30.07a17.24 17.24 0 0 1-5.043-0.973q-0.569-0.213-1.138-0.466c-0.219-0.1-0.438-0.2-0.654-0.312l0.027 0.017c2.694 1.839 16 6.332 29.91-5l0.022-0.05c0.347-0.81 4.951-12.26-3.84-20.36z" fill="url(#j)" />
+    <path d="m21.35 44.74s1.789-6.667 12.81-6.667c1.191 0 4.6-3.325 4.661-4.289a19.3 19.3 0 0 1-14.55-0.572 14.62 14.62 0 0 0-14.25 0.572 9.953 9.953 0 0 0 9.181 5.775c-0.718 6.337 2.632 13.72 10.74 17.6 0.181 0.087 0.351 0.181 0.537 0.264-4.733-2.445-8.641-7.069-9.129-12.68z" fill="url(#k)" />
+    <path d="m74.62 26.83c-1.684-4.052-5.1-8.427-7.775-9.81a40.27 40.27 0 0 1 3.925 11.76l7e-3 0.065c-4.382-10.92-11.81-15.33-17.88-24.92-0.307-0.485-0.614-0.971-0.913-1.484-0.171-0.293-0.308-0.557-0.427-0.8a7.053 7.053 0 0 1-0.578-1.535 0.1 0.1 0 0 0-0.088-0.1 0.138 0.138 0 0 0-0.073 0c-5e-3 0-0.013 9e-3 -0.019 0.011s-0.019 0.011-0.028 0.015l0.015-0.026c-9.735 5.7-13.04 16.25-13.34 21.53 0.452-0.031 0.9-0.069 1.362-0.069a19.56 19.56 0 0 1 16.98 9.917 13.38 13.38 0 0 0-9.345-2.269c13.94 6.97 10.2 30.97-9.119 30.07a17.24 17.24 0 0 1-5.043-0.973q-0.569-0.213-1.138-0.466c-0.219-0.1-0.438-0.2-0.654-0.312l0.027 0.017q-0.282-0.135-0.564-0.281c0.181 0.087 0.351 0.181 0.537 0.264-4.733-2.446-8.641-7.07-9.129-12.68 0 0 1.789-6.667 12.81-6.667 1.191 0 4.6-3.325 4.661-4.289-0.015-0.315-6.76-3-9.39-5.59-1.405-1.385-2.072-2.052-2.663-2.553a11.59 11.59 0 0 0-1-0.758 17.97 17.97 0 0 1-0.109-9.473 28.7 28.7 0 0 0-9.329 7.21h-0.018c-1.536-1.947-1.428-8.367-1.34-9.708a6.928 6.928 0 0 0-1.294 0.687 28.22 28.22 0 0 0-3.788 3.245 33.84 33.84 0 0 0-3.623 4.347v6e-3 -7e-3a32.73 32.73 0 0 0-5.2 11.74l-0.052 0.256c-0.073 0.341-0.4 2.073-0.447 2.445a45.09 45.09 0 0 0-0.572 5.403v0.2a38.76 38.76 0 0 0 76.95 6.554c0.065-0.5 0.118-0.995 0.176-1.5a39.86 39.86 0 0 0-2.514-19.47zm-3.845 1.991 7e-3 0.041z" fill="url(#l)" />
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:title>Firefox Browser logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
+
+<br/>Firefox</p></td>
+<td>
+<p>Firefox（“火狐”）网页浏览器。</p>
+<!-- <p>Android端的开发代号为“Fenix”。</p> -->
+<p>有<a class="orange" href="https://ftp.mozilla.org/pub/fenix/releases/" target="_blank">Android端</a>和<a class="orange" href="https://www.mozilla.org/zh-CN/firefox/all/desktop-esr/win64-msi/zh-CN/" target="_blank">Microsoft Windows端</a>。</p>
+</td>
+</tr></table>
+<p>火狐浏览器的官方网站是“mozilla.org”，不用去中国版网站“www.firefox.com.cn”下载中国特供版的。</p>
+<table><tr>
+<td><p class="pc">
+<svg version="1.1" id="svg44" width="80px" height="80px" viewBox="0 0 511.98489 511.98489" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs18">
+    <linearGradient xlink:href="#linearGradient4975" id="linearGradient4633" gradientUnits="userSpaceOnUse" gradientTransform="matrix(231.62575,0,0,231.62472,111.11013,159.99363)" x2="0.5565635" x1="0.46521288" y1="-0.67390651" y2="0.81129867" />
+    <linearGradient id="linearGradient4975">
+      <stop style="stop-color:#1972e7" offset="0" id="stop4971" /><stop style="stop-color:#1969d5" offset="1" id="stop4973" />
+    </linearGradient>
+    <linearGradient xlink:href="#3" id="linearGradient1331" x1="101.74381" y1="33.726189" x2="101.59915" y2="135.466" gradientUnits="userSpaceOnUse" gradientTransform="matrix(3.7794235,0,0,3.7794067,0.00151555,0.00377865)" />
+    <linearGradient id="3" x2="1" gradientTransform="matrix(61.286,0,0,61.286,29.399,42.333)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" id="stop1397" style="stop-color:#afccfb" /><stop offset="1" id="stop1399" style="stop-color:#8bb5f8" />
+    </linearGradient>
+    <linearGradient xlink:href="#1" id="linearGradient2962" gradientUnits="userSpaceOnUse" gradientTransform="matrix(94.931559,164.42687,-164.4276,94.931137,97.555991,173.61083)" x2="1.7695541" x1="0.018202547" y1="-0.51170158" y2="0.4994337" />
+    <linearGradient id="1" x2="1" gradientTransform="matrix(25.118,43.506,-43.506,25.118,25.812,45.935)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" id="stop3122" style="stop-color:#659cf6" /><stop offset="1" id="stop3124" style="stop-color:#4285f4" />
+    </linearGradient>
+    <linearGradient xlink:href="#2" id="linearGradient2688" x1="67.452377" y1="40.320694" x2="67.733002" y2="95.25" gradientUnits="userSpaceOnUse" gradientTransform="matrix(3.7794235,0,0,3.7794067,0.00150043,0.00377865)" />
+    <linearGradient id="2">
+      <stop style="stop-color:#3680f0" offset="0" id="stop2682" /><stop style="stop-color:#2678ec" offset="1" id="stop2684" />
+    </linearGradient>
+  </defs>
+  <path d="m 255.99319,255.99433 110.85049,63.99671 -110.85049,191.99385 c 141.38068,0 255.9917,-114.61051 255.9917,-255.99056 0,-46.64165 -12.53559,-90.3316 -34.33115,-127.99716 h -221.6632 z" id="path34-4" style="fill:url(#linearGradient1331)" />
+  <path d="M 255.99054,0 C 161.2404,0 78.576848,51.513314 34.31224,128.0274 l 110.82781,191.96363 110.85049,-63.9967 V 127.99717 h 221.6632 C 433.38157,51.501975 350.72936,0 255.99054,0 Z" id="path36-1" style="fill:url(#linearGradient4633)" />
+  <path d="m 0.00151177,255.99433 c 0,141.38005 114.60723823,255.99056 255.99168823,255.99056 L 366.84368,319.99103 255.9932,255.99433 145.14271,319.99103 34.314897,128.0274 C 12.531434,165.68239 0,209.35646 0,255.99056" id="path38-7" style="fill:url(#linearGradient2962)" />
+  <path d="m 383.99094,255.99433 c 0,70.69003 -57.30741,127.99717 -127.99775,127.99717 -70.69034,0 -127.99773,-57.30714 -127.99773,-127.99717 0,-70.69002 57.30739,-127.99716 127.99773,-127.99716 70.69034,0 127.99775,57.30714 127.99775,127.99716" fill="#ffffff" id="path40" />
+  <path d="m 359.99158,255.99433 c 0,57.43565 -46.56249,103.99794 -103.99839,103.99794 -57.4359,0 -103.9984,-46.56229 -103.9984,-103.99794 0,-57.43564 46.5625,-103.99793 103.9984,-103.99793 57.4359,0 103.99839,46.56229 103.99839,103.99793" id="path42-5" style="fill:url(#linearGradient2688)" />
+</svg>
+
+<br/>Ungoogled Chromium</p></td>
+<td>
+<p>开源版谷歌浏览器。</p>
+<p>“Ungoogled”意为去掉了一些和Google的互联网服务有关的模块。</p>
+<p>有<a class="orange" href="https://github.com/macchrome/droidchrome/releases/" target="_blank">Android端</a>和<a class="orange" href="https://github.com/macchrome/winchrome/releases/" target="_blank">Microsoft Windows端</a>。</p>
+<p>谷歌浏览器对Android的系统版本要求不低，在本段文字写下时版本要求为8.0，不符合条件的用户想用就只能专门去下载旧版本。</p>
+</td>
+</tr></table>
+<p>这些是最基础的两大件。想用别的也应该先学会用这两个。</p>
+<p></p>
 
 <h2>●XMPP</h2>
 <p>QQ号码总是被封禁？微信又太封闭？在考量了多种不受政府管控的通讯工具哪种最适合为革命服务后，我们最终选定了XMPP。XMPP作为国际标准，是非常可信的。</p>
